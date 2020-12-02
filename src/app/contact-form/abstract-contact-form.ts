@@ -1,6 +1,6 @@
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
-export class AbstractContactForm {
+export abstract class AbstractContactForm {
   form = new FormGroup({
     username: new FormControl('', [
       Validators.required,
@@ -33,4 +33,6 @@ export class AbstractContactForm {
   get agency(): AbstractControl {
     return this.form.get('agency');
   }
+
+  abstract save(): void;
 }
