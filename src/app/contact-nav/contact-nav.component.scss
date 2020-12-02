@@ -1,0 +1,23 @@
+@import '../../_variables.scss';
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav a {
+  cursor: pointer;
+  border: 1px solid $brand-color;
+  display: block;
+  text-align: center;
+
+  &.active{
+    background-color: $brand-color;
+    color: $light-color;
+  }
+
+  &:hover {
+    background-color: lighten($brand-color, 20%);
+    color: darken($light-color, 20%);
+  }
+}

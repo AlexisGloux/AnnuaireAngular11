@@ -1,0 +1,21 @@
+<form (ngSubmit)="add(); form.reset()" #form="ngForm">
+  <div>
+    <label for="new-contact-username">Nom d'utilisateur</label>
+    <input type="text" name="username" id="new-contact-username"
+    [(ngModel)]="newContact.username" required minlength="4" #username="ngModel">
+    <div class="error" *ngIf="username.invalid && username.touched">
+      <p *ngIf="username.errors.required">Ce champs est obligatoire</p>
+      <p *ngIf="username.errors.minlength">Le nom doit comporter au moins 4 caractères</p>
+    </div>
+  </div>
+  <div>
+    <label for="new-contact-email">Adresse courriel</label>
+    <input type="email" name="email" id="new-contact-email" placeholder="username@domain.com"
+    [(ngModel)]="newContact.email" required email #email="ngModel">
+    <div class="error" *ngIf="email.invalid && email.touched">
+      <p *ngIf="email.errors.required">Ce champs est obligatoire</p>
+      <p *ngIf="email.errors.email">Vous devez saisir un email au format valide</p>
+    </div>
+  </div>
+  <button [disabled]="form.invalid">Ajouter</button>
+</form>
