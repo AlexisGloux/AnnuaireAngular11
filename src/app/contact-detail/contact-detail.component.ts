@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Contact, CONTACTS} from '../fixtures/contacts';
 import {ActivatedRoute} from '@angular/router';
+import {ContactListService} from "../contact-list.service";
 
 @Component({
   selector: 'app-contact-detail',
@@ -10,12 +11,12 @@ import {ActivatedRoute} from '@angular/router';
 export class ContactDetailComponent implements OnInit{
   contact: Contact = CONTACTS[0];
 
-  constructor(private activeRoute: ActivatedRoute) {
+  constructor(private activeRoute: ActivatedRoute, private contactList: ContactListService) {
   }
 
   ngOnInit(): void {
     this.activeRoute.paramMap.subscribe(map => {
-      this.contact = CONTACTS[+map.get('id') - 1];
+      this.contact = this.contactList.find(+map.get('id'));
     });
   }
 }

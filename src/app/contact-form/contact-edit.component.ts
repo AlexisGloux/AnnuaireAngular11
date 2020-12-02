@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CONTACTS } from '../fixtures/contacts';
 import { ActivatedRoute, Router } from '@angular/router';
 import {AbstractContactForm} from './abstract-contact-form';
+import {ContactListService} from '../contact-list.service';
 
 @Component({
   selector: 'app-contact-edit',
@@ -12,14 +13,14 @@ export class ContactEditComponent extends AbstractContactForm implements OnInit 
   currentId: number;
   submitText = 'Éditer';
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private contactList: ContactListService) {
     super();
   }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(map => {
       this.currentId = +map.get('id');
-      const contact = CONTACTS[this.currentId - 1];
+      const contact = this.contactList.find(this.currentId);
       this.form.get('username').setValue(contact.username);
       this.form.get('email').setValue(contact.email);
       this.form.get('memberSince').setValue(contact.memberSince);
@@ -28,10 +29,11 @@ export class ContactEditComponent extends AbstractContactForm implements OnInit 
   }
 
   save(): void {
-    CONTACTS[this.currentId - 1].username = this.form.get('username').value;
-    CONTACTS[this.currentId - 1].email = this.form.get('email').value;
-    CONTACTS[this.currentId - 1].memberSince = this.form.get('memberSince').value;
-    CONTACTS[this.currentId - 1].agency = this.form.get('agency').value;
+    const contact = this.contactList.find(this.currentId);
+    contact.username = this.form.get('username').value;
+    contact.email = this.form.get('email').value;
+    contact.memberSince = this.form.get('memberSince').value;
+    contact.agency = this.form.get('agency').value;
     this.router.navigate(['/']);
   }
 }
