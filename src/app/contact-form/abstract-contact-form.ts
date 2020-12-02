@@ -1,13 +1,6 @@
-import { Component } from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
-import {CONTACTS} from '../fixtures/contacts';
 
-@Component({
-  selector: 'app-contact-create-reactive',
-  templateUrl: './contact-create-reactive.component.html',
-  styleUrls: ['./contact-create-reactive.component.scss']
-})
-export class ContactCreateReactiveComponent {
+export class AbstractContactForm {
   createForm = new FormGroup({
     username: new FormControl('', [
       Validators.required,
@@ -24,11 +17,6 @@ export class ContactCreateReactiveComponent {
       Validators.required
     ])
   });
-
-  add(): void {
-    CONTACTS.push(this.createForm.value);
-    this.createForm.reset();
-  }
 
   get username(): AbstractControl {
     return this.createForm.get('username');

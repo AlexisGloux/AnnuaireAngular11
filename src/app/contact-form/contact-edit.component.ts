@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CONTACTS } from '../fixtures/contacts';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ContactCreateReactiveComponent } from '../contact-create-reactive/contact-create-reactive.component';
+import {AbstractContactForm} from './abstract-contact-form';
 
 @Component({
   selector: 'app-contact-edit',
-  templateUrl: '../contact-create-reactive/contact-create-reactive.component.html',
-  styleUrls: ['../contact-create-reactive/contact-create-reactive.component.scss']
+  templateUrl: './contact-create.component.html',
+  styleUrls: ['./contact-create.component.scss']
 })
-export class ContactEditComponent extends ContactCreateReactiveComponent implements OnInit {
+export class ContactEditComponent extends AbstractContactForm implements OnInit {
   currentId: number;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {

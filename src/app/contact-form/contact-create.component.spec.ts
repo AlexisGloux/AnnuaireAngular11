@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContactCreateReactiveComponent } from './contact-create-reactive.component';
+import { ContactCreateComponent } from './contact-create.component';
 
 describe('ContactCreateReactiveComponent', () => {
-  let component: ContactCreateReactiveComponent;
-  let fixture: ComponentFixture<ContactCreateReactiveComponent>;
+  let component: ContactCreateComponent;
+  let fixture: ComponentFixture<ContactCreateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContactCreateReactiveComponent ]
+      declarations: [ ContactCreateComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContactCreateReactiveComponent);
+    fixture = TestBed.createComponent(ContactCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
