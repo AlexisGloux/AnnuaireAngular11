@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="createForm" (ngSubmit)="add()">
+  <form [formGroup]="form" (ngSubmit)="save()">
     <div class="form-group">
       <label for="new-contact-username">Nom d'utilisateur</label>
       <input type="text" name="username" id="new-contact-username" class="form-control"
@@ -39,7 +39,7 @@
         <p *ngIf="agency.errors.required">Ce champs est obligatoire</p>
       </div>
     </div>
-    <button [disabled]="createForm.invalid" class="btn btn-primary">Ajouter</button>
+    <button [disabled]="form.invalid" class="btn btn-primary">Ajouter</button>
   </form>
 </div>
 

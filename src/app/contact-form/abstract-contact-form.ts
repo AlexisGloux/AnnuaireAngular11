@@ -1,7 +1,7 @@
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
 export class AbstractContactForm {
-  createForm = new FormGroup({
+  form = new FormGroup({
     username: new FormControl('', [
       Validators.required,
       Validators.minLength(4)
@@ -19,18 +19,18 @@ export class AbstractContactForm {
   });
 
   get username(): AbstractControl {
-    return this.createForm.get('username');
+    return this.form.get('username');
   }
 
   get email(): AbstractControl {
-    return this.createForm.get('email');
+    return this.form.get('email');
   }
 
   get memberSince(): AbstractControl {
-    return this.createForm.get('memberSince');
+    return this.form.get('memberSince');
   }
 
   get agency(): AbstractControl {
-    return this.createForm.get('agency');
+    return this.form.get('agency');
   }
 }

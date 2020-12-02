@@ -13,9 +13,9 @@ export class ContactCreateComponent extends AbstractContactForm {
     super();
   }
 
-  add(): void {
-    CONTACTS.push(this.createForm.value);
-    this.createForm.reset();
+  save(): void {
+    CONTACTS.push(this.form.value);
+    this.form.reset();
     this.router.navigate(['/']);
   }
 }
