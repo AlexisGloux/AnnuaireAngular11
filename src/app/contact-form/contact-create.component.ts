@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./contact-create.component.scss']
 })
 export class ContactCreateComponent extends AbstractContactForm {
+  submitText = 'Ajouter';
+
   constructor(private router: Router) {
     super();
   }

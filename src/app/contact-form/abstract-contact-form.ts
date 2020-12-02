@@ -1,6 +1,8 @@
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
 export abstract class AbstractContactForm {
+  abstract submitText;
+
   form = new FormGroup({
     username: new FormControl('', [
       Validators.required,

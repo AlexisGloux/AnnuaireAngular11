@@ -10,6 +10,7 @@ import {AbstractContactForm} from './abstract-contact-form';
 })
 export class ContactEditComponent extends AbstractContactForm implements OnInit {
   currentId: number;
+  submitText = 'Éditer';
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     super();
