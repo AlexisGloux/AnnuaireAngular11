@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CONTACTS } from '../fixtures/contacts';
 import { ActivatedRoute, Router } from '@angular/router';
 import {AbstractContactForm} from './abstract-contact-form';
 import {ContactListService} from '../contact-list.service';

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {CONTACTS} from '../fixtures/contacts';
 import {AbstractContactForm} from './abstract-contact-form';
 import {Router} from '@angular/router';
+import {ContactListService} from '../contact-list.service';
 
 @Component({
   selector: 'app-contact-create-reactive',
@@ -11,12 +11,12 @@ import {Router} from '@angular/router';
 export class ContactCreateComponent extends AbstractContactForm {
   submitText = 'Ajouter';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private contactList: ContactListService) {
     super();
   }
 
   save(): void {
-    CONTACTS.push(this.form.value);
+    this.contactList.add(this.form.value);
     this.form.reset();
     this.router.navigate(['/']);
   }
