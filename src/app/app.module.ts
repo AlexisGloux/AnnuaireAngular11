@@ -8,6 +8,7 @@ import { ContactNavComponent } from './contact-nav/contact-nav.component';
 import { ContactCreateComponent } from './contact-create/contact-create.component';
 import { ContactCreateReactiveComponent } from './contact-create-reactive/contact-create-reactive.component';
 import { RoutingModule } from './routing/routing.module';
+import { ContactEditComponent } from './contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RoutingModule } from './routing/routing.module';
     ContactDetailComponent,
     ContactNavComponent,
     ContactCreateComponent,
-    ContactCreateReactiveComponent
+    ContactCreateReactiveComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,
