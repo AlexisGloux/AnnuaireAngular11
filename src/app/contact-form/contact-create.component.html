@@ -3,10 +3,12 @@
     <div class="form-group">
       <label for="new-contact-username">Nom d'utilisateur</label>
       <input type="text" name="username" id="new-contact-username" class="form-control"
-             formControlName="username" required minlength="4">
-      <div class="error" *ngIf="username.invalid && username.touched">
+             formControlName="username" required minlength="4" appSimpleValidator [appChoiceValidator]="['Alice','Bob', 'Charles']">
+      <div class="error" *ngIf="username.invalid && (username.touched || username.dirty)">
         <p *ngIf="username.errors.required">Ce champs est obligatoire</p>
         <p *ngIf="username.errors.minlength">Le nom doit comporter au moins 4 caractères</p>
+        <p *ngIf="username.errors.simple">Le nom doit comporter maximum 120 caractères</p>
+        <p *ngIf="username.errors.choice">Les valeurs valides sont Alice, Bob et Charles</p>
       </div>
     </div>
     <div class="form-group">
@@ -37,11 +39,10 @@
       </select>
       <div class="error" *ngIf="agency.invalid && agency.touched">
         <p *ngIf="agency.errors.required">Ce champs est obligatoire</p>
-        <p *ngIf="agency.errors.choice">Message pour la valisation ChoiceValidator</p>
-        <p *ngIf="agency.errors.simple">Message pour la valisation SimpleValidator</p>
+        <p *ngIf="agency.errors.choice">Message pour la validation ChoiceValidator</p>
+        <p *ngIf="agency.errors.simple">Message pour la validation SimpleValidator</p>
       </div>
     </div>
     <button [disabled]="form.invalid" class="btn btn-primary">{{ submitText }}</button>
   </form>
 </div>
-

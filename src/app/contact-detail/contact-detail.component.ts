@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Contact, CONTACTS} from '../fixtures/contacts';
 import {ActivatedRoute} from '@angular/router';
 import {ContactListService} from '../contact-list.service';
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-contact-detail',

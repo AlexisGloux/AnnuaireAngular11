@@ -1,15 +1,19 @@
+// Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RoutingModule } from './routing/routing.module';
 
+// Composant perso
 import { AppComponent } from './app.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ContactNavComponent } from './contact-nav/contact-nav.component';
 import { ContactCreateComponent } from './contact-form/contact-create.component';
-import { RoutingModule } from './routing/routing.module';
 import { ContactEditComponent } from './contact-form/contact-edit.component';
-import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SimpleValidatorDirective } from './simple-validator.directive';
+import { ChoiceValidatorDirective } from './choice-validator.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ContactNavComponent,
     ContactCreateComponent,
     ContactEditComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SimpleValidatorDirective,
+    ChoiceValidatorDirective
   ],
   imports: [
     BrowserModule,
