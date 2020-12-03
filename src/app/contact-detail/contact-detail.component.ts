@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Contact, CONTACTS} from '../fixtures/contacts';
 import {ActivatedRoute} from '@angular/router';
 import {ContactListService} from '../contact-list.service';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-contact-detail',
@@ -9,7 +10,7 @@ import {ContactListService} from '../contact-list.service';
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent implements OnInit{
-  contact: Contact = CONTACTS[0];
+  contact: Observable<Contact>;
 
   constructor(private activeRoute: ActivatedRoute, private contactList: ContactListService) {
   }

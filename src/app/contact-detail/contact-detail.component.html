@@ -1,11 +1,11 @@
 <div class="container">
   <div class="card m-auto border-info" style="width: 30rem;" *ngIf="contact; else contactNotFound">
     <div class="card-body">
-      <h5 class="card-title text-center font-weight-bold">{{ contact.username }}</h5>
+      <h5 class="card-title text-center font-weight-bold">{{ (contact | async).username }}</h5>
       <hr>
-      <p>Adresse email&nbsp;: {{ contact.email }}</p>
-      <p>Agence&nbsp;: {{ contact.agency }}</p>
-      <p>Membre depuis le&nbsp;: {{ contact.memberSince }}</p>
+      <p>Adresse email&nbsp;: {{ (contact | async).email }}</p>
+      <p>Agence&nbsp;: {{ (contact | async).agency }}</p>
+      <p>Membre depuis le&nbsp;: {{ (contact | async).memberSince }}</p>
     </div>
   </div>
 </div>
