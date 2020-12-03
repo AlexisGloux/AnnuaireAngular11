@@ -4,7 +4,9 @@
       <h5 class="card-title text-center font-weight-bold">{{ (contact | async).username }}</h5>
       <hr>
       <p>Adresse email&nbsp;: {{ (contact | async).email }}</p>
-      <p>Agence&nbsp;: {{ (contact | async).agency }}</p>
+      <p *ngIf="(contact | async).agency == 0">Agence : Troyes</p>
+      <p *ngIf="(contact | async).agency == 1">Agence : Compiègne</p>
+      <p *ngIf="(contact | async).agency == 2">Agence : Belfort</p>
       <p>Membre depuis le&nbsp;: {{ (contact | async).memberSince }}</p>
     </div>
   </div>
