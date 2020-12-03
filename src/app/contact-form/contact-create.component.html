@@ -37,6 +37,8 @@
       </select>
       <div class="error" *ngIf="agency.invalid && agency.touched">
         <p *ngIf="agency.errors.required">Ce champs est obligatoire</p>
+        <p *ngIf="agency.errors.choice">Message pour la valisation ChoiceValidator</p>
+        <p *ngIf="agency.errors.simple">Message pour la valisation SimpleValidator</p>
       </div>
     </div>
     <button [disabled]="form.invalid" class="btn btn-primary">{{ submitText }}</button>

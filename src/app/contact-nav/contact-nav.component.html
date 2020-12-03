@@ -4,15 +4,17 @@
   <thead class="text-center thead-dark">
   <tr>
     <th scope="col">Nom</th>
-    <th scope="col">Email</th>
+    <th scope="col">Agence</th>
     <th scope="col">Actions</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let contact of contacts | async">
-    <th class="text-center pointer-events" scope="row"><a [routerLink]="['show', contact.id]">{{ contact.username }}</a></th>
-    <th class="text-center"><a>{{ contact.email }}</a></th>
-    <th class="text-center"><a class="btn btn-primary btn-sm" [routerLink]="['edit', contact.id]">Éditer</a></th>
+    <th class="text-center pointer-events" scope="row"><a [routerLink]="['/show', contact.id]">{{ contact.username }}</a></th>
+    <th class="text-center pointer-events" *ngIf="contact.agency == 0">Troyes</th>
+    <th class="text-center pointer-events" *ngIf="contact.agency == 1">Compiègne</th>
+    <th class="text-center pointer-events" *ngIf="contact.agency == 2">Belfort</th>
+    <th class="text-center"><a class="btn btn-primary btn-sm" [routerLink]="['/edit', contact.id]">Éditer</a></th>
   </tr>
   </tbody>
 </table>
