@@ -9,7 +9,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let contact of contacts">
+  <tr *ngFor="let contact of contacts | async">
     <th class="text-center pointer-events" scope="row"><a [routerLink]="['show', contact.id]">{{ contact.username }}</a></th>
     <th class="text-center"><a>{{ contact.email }}</a></th>
     <th class="text-center"><a class="btn btn-primary btn-sm" [routerLink]="['edit', contact.id]">Éditer</a></th>

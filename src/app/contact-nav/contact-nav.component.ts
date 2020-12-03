@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Contact, CONTACTS } from '../fixtures/contacts';
 import { ContactListService } from '../contact-list.service';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-contact-nav',
@@ -8,13 +9,11 @@ import { ContactListService } from '../contact-list.service';
   styleUrls: ['./contact-nav.component.scss']
 })
 export class ContactNavComponent {
+  contacts: Observable<Contact[]>;
   selected = CONTACTS[0];
 
   constructor(private listService: ContactListService) {
-  }
-
-  get contacts(): Array<Contact> {
-    return this.listService.findAll();
+    this.contacts = listService.data;
   }
 
   select(contact: Contact): void {

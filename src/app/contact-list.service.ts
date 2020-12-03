@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Contact, CONTACTS, NEXT_ID } from './fixtures/contacts';
 import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactListService {
+  private subject = new BehaviorSubject<Contact[]>([]);
   contacts = [];
   nextId = NEXT_ID;
 
@@ -17,14 +19,15 @@ export class ContactListService {
   fetch(): void {
     this.http.get('assets/contacts.json').subscribe(
       (contacts: Contact[]) => {
-        this.contacts = contacts;
-        // this.contacts.push(...contacts);
+        this.contacts.push(...contacts);
+        this.subject.next(this.contacts);
+        // this.contacts = contacts;
         // console.log(contacts);
       });
   }
 
-  findAll(): Array<Contact> {
-    return this.contacts;
+  get data(): Observable<Contact[]> {
+    return this.subject.asObservable();
   }
 
   find(id: number): Contact {
