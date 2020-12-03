@@ -8,7 +8,8 @@ import { ContactNavComponent } from './contact-nav/contact-nav.component';
 import { ContactCreateComponent } from './contact-form/contact-create.component';
 import { RoutingModule } from './routing/routing.module';
 import { ContactEditComponent } from './contact-form/contact-edit.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {HttpClientModule} from '@angular/common/http';
     ContactDetailComponent,
     ContactNavComponent,
     ContactCreateComponent,
-    ContactEditComponent
+    ContactEditComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
