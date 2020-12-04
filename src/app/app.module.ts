@@ -14,6 +14,7 @@ import { ContactEditComponent } from './contact-form/contact-edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SimpleValidatorDirective } from './simple-validator.directive';
 import { ChoiceValidatorDirective } from './choice-validator.directive';
+import { AgencyPipe } from './agency.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ChoiceValidatorDirective } from './choice-validator.directive';
     ContactEditComponent,
     NotFoundComponent,
     SimpleValidatorDirective,
-    ChoiceValidatorDirective
+    ChoiceValidatorDirective,
+    AgencyPipe
   ],
   imports: [
     BrowserModule,
