@@ -1,15 +1,16 @@
-<div class="container">
+<div class="container mb-4">
   <form (ngSubmit)="connect()" *ngIf="!isLoggedIn; else logout" class="row">
-    <div>
+    <div class="mr-2">
       <label for="login-username">Nom d'utilisateur</label>
       <input name="username" [(ngModel)]="username" id="login-username">
     </div>
     <button class="btn btn-sm btn-primary">Se connecter</button>
   </form>
+  <hr>
 </div>
 
 <ng-template #logout>
-  <div class="container">
-    <p>Connecté en tant que <span class="font-weight-bold">{{ this.loggedUser }}</span><a (click)="disconnect()" class="btn btn-sm btn-danger">Se déconnecter</a></p>
+  <div class="container mb-4">
+    <p>Connecté en tant que <span class="font-weight-bold mr-2">{{ this.loggedUser }}</span><a (click)="disconnect()" class="btn btn-sm btn-danger">Se déconnecter</a></p>
   </div>
 </ng-template>
