@@ -1,8 +1,8 @@
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ChoiceValidator} from '../custom.validator';
+import {ChoiceValidator, SimpleValidator} from '../choice.validator';
 
 export abstract class AbstractContactForm {
-  abstract submitText;
+  abstract submitText: string;
 
   form = new FormGroup({
     username: new FormControl('', [
@@ -19,6 +19,7 @@ export abstract class AbstractContactForm {
     agency: new FormControl('', [
       Validators.required,
       ChoiceValidator(['1', '2']),
+      SimpleValidator
     ])
   });
 

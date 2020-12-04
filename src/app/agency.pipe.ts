@@ -1,15 +1,16 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Inject, Pipe, PipeTransform} from '@angular/core';
+import {AGENCIES_TOKEN} from './agency.service';
 
 @Pipe({
   name: 'agency'
 })
 export class AgencyPipe implements PipeTransform {
 
-  transform(value: number): string {
-    if (value === 0) { return 'Troyes'; }
-    if (value === 1) { return 'Compiègne'; }
-    if (value === 2) { return 'Belfort'; }
-    return null;
-  }
+  constructor(
+    @Inject(AGENCIES_TOKEN) private agencies: string[]
+  ) {}
 
+  transform(value: number): string {
+    return this.agencies[value];
+  }
 }

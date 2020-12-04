@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AbstractContactForm } from './abstract-contact-form';
-import { ContactListService } from '../contact-list.service';
+import {ActivatedRoute} from '@angular/router';
+import {AbstractContactForm} from './abstract-contact-form';
+import {ContactListService} from '../contact-list.service';
 
 @Component({
   selector: 'app-contact-edit',
-  templateUrl: './contact-create.component.html',
-  styleUrls: ['./contact-create.component.scss']
+  templateUrl: 'contact-form.component.html',
+  styleUrls: ['contact-form.component.scss']
 })
 export class ContactEditComponent extends AbstractContactForm implements OnInit {
   currentId: number;
-  submitText = 'Éditer';
+  submitText = 'Mettre à jour';
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private contactList: ContactListService) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private contactList: ContactListService
+  ) {
     super();
   }
 
@@ -32,6 +35,5 @@ export class ContactEditComponent extends AbstractContactForm implements OnInit 
   save(): void {
     this.contactList.update(this.currentId, this.form.value);
     this.form.reset();
-    this.router.navigate(['/']);
   }
 }

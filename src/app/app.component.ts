@@ -7,7 +7,7 @@ import { Contact, CONTACTS} from './fixtures/contacts';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Annuaire';
+  title = 'ng201130';
   selected = CONTACTS[0];
 
   select(contact: Contact): void {

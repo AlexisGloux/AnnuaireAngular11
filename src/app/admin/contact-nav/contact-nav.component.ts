@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Contact } from '../fixtures/contacts';
-import { ContactListService } from '../contact-list.service';
+import {ContactListService} from '../../contact-list.service';
 import {Observable} from 'rxjs';
+import {Contact} from '../../fixtures/contacts';
 
 @Component({
   selector: 'app-contact-nav',

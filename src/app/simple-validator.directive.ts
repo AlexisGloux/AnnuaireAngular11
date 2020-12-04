@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
-import { AbstractControl, NG_VALIDATORS, Validator } from '@angular/forms';
-import { SimpleValidator } from './custom.validator';
+import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator} from '@angular/forms';
+import {SimpleValidator} from './choice.validator';
 
 @Directive({
   selector: '[appSimpleValidator]',
@@ -9,8 +9,7 @@ import { SimpleValidator } from './custom.validator';
   ]
 })
 export class SimpleValidatorDirective implements Validator {
-
-  validate(control: AbstractControl): {[key: string]: any} | null {
+  validate(control: AbstractControl): ValidationErrors | null {
     return SimpleValidator(control);
   }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Contact, CONTACTS} from '../fixtures/contacts';
+import {Contact} from '../fixtures/contacts';
 import {ActivatedRoute} from '@angular/router';
 import {ContactListService} from '../contact-list.service';
 import {Observable} from 'rxjs';
@@ -9,14 +9,16 @@ import {Observable} from 'rxjs';
   templateUrl: './contact-detail.component.html',
   styleUrls: ['./contact-detail.component.scss']
 })
-export class ContactDetailComponent implements OnInit{
+export class ContactDetailComponent implements OnInit {
   contact: Observable<Contact>;
 
-  constructor(private activeRoute: ActivatedRoute, private contactList: ContactListService) {
-  }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private contactList: ContactListService
+  ) {}
 
   ngOnInit(): void {
-    this.activeRoute.paramMap.subscribe(map => {
+    this.activatedRoute.paramMap.subscribe(map => {
       this.contact = this.contactList.find(+map.get('id'));
     });
   }
