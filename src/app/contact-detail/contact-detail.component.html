@@ -7,6 +7,10 @@
       <p>Adresse email&nbsp;: {{ (contact | async).email }}</p>
       <p>Agence : {{ (contact | async).agency | agency }}</p>
       <p>Membre depuis le&nbsp;: {{ (contact | async).memberSince }}</p>
+      <hr>
+      <div class="text-center">
+        <a class="btn btn-sm btn-primary" routerLink="/list">Retour</a>
+      </div>
     </div>
   </div>
 </div>
